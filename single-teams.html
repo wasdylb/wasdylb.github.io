@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>LiBin-博客</title>
+
+    <link rel="SHORTCUT ICON" href="images/logo.jpg">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+    <!-- PRE LOADER -->
+
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-wordpress">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </div>
+
+    <!-- Navigation section  -->
+
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    <img src="images/home/logo.svg" width="70" height="70" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="single-blog.html">设计</a>
+                    </li>
+                    <li>
+                        <a href="single-project.html">作品</a>
+                    </li>
+                    <li class="php">
+                        <a href="single-teams.html">项目</a>
+                    </li>
+                    <li>
+                        <a href="single-education.html">教学</a>
+                    </li>
+                    <li>
+                        <a href="about.html">关于</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">联系</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Blog Single Post Section -->
+
+    <section id="blog-single-post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="blog-single-post-thumb">
+                        <!-- 百变小强-编程教育启蒙玩具 -->
+                        <div class="blog-post-image">
+                            <img src="images/teams/BuggyUI.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h1>
+                            <img src="images/home/icon-h.svg" width="28" height="28" /> 百变小强-编程教育启蒙玩具</h1>
+                        <p>百变小强是一款面向人工智能启蒙教育的编程机器人，作为一款体积小的陪伴型玩具，百变小强用于颜色识别、语音控制、蓝牙遥控等丰富玩法，
+                            兼容乐高积木件，可进行外形改造，并通过编程定义属于孩子自己的玩乐方式。百变小强集趣味性、拓展性、学习性与一体，可以激发孩子们的想想力、创造力
+                            和动手能力。适合8岁以上的儿童。
+                        </p>
+                        <h2>角色扮演</h2>
+                        <h3> 小强底座驱动开发</h3>
+                        <p>采用ARM®
+                            Cortex®-M0内核32位单片机的mini58。使用Keil开发。传感器包括两路电机、一个无源蜂鸣器、两路光电，光电包含3个功能：1.当RGB灯使用。2.读取灰度值。3.颜色识别。而mini58只做驱动，与另一核心通过Uart协议来间接控制。开发前根据需求画了脑图。
+                        </p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/BuggyFirmware.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <p>同时定义串口通讯协议。采用同步通讯，每条指令都带返回。Arduino发送指令给小车，返回状态结果指令，这样可以知道每条控制指令是否执行成功。
+                            <br> 控制小车指令
+                            <br>控制小车包括电机驱动指令、蜂鸣器驱动指令、光电模式设置指令。
+                            <h4>协议格式：数据头(2byte)+命令(1byte)+数据长度(1byte)+数据(nbyte)+校验值(1byte)。返回数据格式：数据头(2byte)+命令(1byte)+结果(1byte)
+                            </h4>
+                             获取小车数据指令
+                            <br>获取光电的灰度值、颜色值、固件版本号。
+                            <h4>协议格式：数据头(2byte)+命令(1byte) 返回数据格式：数据头(2byte)+命令(1byte)+数据长度(1byte)+数据(nbyte)+校验值(1byte)
+                            </h4>
+                        </p>
+                        <h3> Arduino应用层API开发</h3>
+                        <p>根据定义的串口协议，开发Arduino端控制程序。封装了驱动电机、蜂鸣器、设置彩灯、读取灰度值、颜色值函数，用户直接调用API即可驱动。</p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/BuggyArduino.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h3> App通讯固件开发</h3>
+                        <p>App主要包含遥控玩法（固定功能）和图形化编程玩法（用户自定义）。为了两个玩法兼容，采用Firmata协议，新增百变小强传感器控制指令。这样手机App中遥控与编程玩法就可以用一套协议，控制逻辑由手机来完成，
+                            优点在于更新玩法只需要更新手机软件，不再需要更新百变小强固件。
+                        </p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/BuggyApp.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h3> mDesigner图形化编程固件开发</h3>
+                        <p>mDesigner图形化编程需要支持online和offline程序，online模式与手机App编程模式一样采用Firmata协议。offline程序就是Arduino应用层API。
+                        </p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/BuggymDesigner.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h3> 展示程序开发</h3>
+                        <p>基于Arduino应用层API开发出好玩、有趣的应用。如前作品里的小沙盘、物体分拣机等等。</p>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- 百变小刚-自识别传感器 -->
+                        <div class="blog-post-image">
+                            <img src="images/teams/ideaBotUI.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h1>
+                            <img src="images/home/icon-h.svg" width="28" height="28" /> 百变小刚-自识别传感器</h1>
+                        <p>百变小钢由底板（包括主控CPU、蓝牙模块、低功耗控制模块）作为控制核心，底板上连接传感器和掌控板。底板可以通过蓝牙和串口连通上位机，从而实现与底板传感器进行交互。本底板目前可以连接五款传感器：电机传感器、光电传感器、超声波传感器、舵机传感器、手势传感器、彩灯传感器、红外传感器等。
+                            <br>掌控板又叫指间板，分为AVR点阵或ESP32两种，通过核心板编写用户程序来实现对传感器的控制。
+                        </p>
+                        <h2>角色扮演</h2>
+                        <h3> 自识别传感器固件开发</h3>
+                        <p>采用mini58 32位处理器，通过两路IIC进行通信，一路用于主机的自识别，一路用于其他核心的离线控制。包含彩灯传感器、光电传感器、超声波传感器、手势传感器、红外传感器、舵机传感器。
+                            <br>1.彩灯传感器：驱动ws2812协议的彩灯，一条总线就可以驱动，一个灯携带24bit数据（3个灯，一个灯8bit），1bit的高低码由信号高低电平时间决定。
+                            <br>2.光电传感器：支持3种模式：1.RGB彩灯；2.灰度识别；3.颜色识别。
+                            <br>3.超声波传感器：产生40KHZ频率超声波，一次发送8个脉冲，通过定时器捕获接收到的波形来计算距离。测试超声波死区在3cm，误差5mm。
+                            <br>4.手势传感器：因已经占有两路IIC，所以手势传感器需要一路软IIC才能驱动。能够获取到手势和距离两功能。
+                            <br>5.红外传感器：集成发送和接收，发送38Khz的NEC制式、Sony制式信号。只接收NEC制式信号。
+                            <br>6.舵机传感器：产生一个50HZPWM波形，周期20ms。0.5ms-2.5ms脉冲宽度对应0-180度。
+                            <br>针对每个传感器定义IIC数据表，用于访问及控制。
+                        </p>
+                        <h3> Arduino应用层API开发</h3>
+                        <p>根据定义的IIC数据表，开发Arduino端控制程序，用户直接调用API即可驱动。</p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/ideaBotyArduino.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h3> mDesigner图形化编程固件开发</h3>
+                        <p>提供IIC数据表，沟通对接IIC数据操作方法，用于图形化软件控制。同时提供Arduino的API示例，用于离线代码编写。</p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/ideaBotDesigner.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <h3> MicroPython应用层API开发</h3>
+                        <p>为ESP32指间板开发MicroPython的驱动API（py文件），用户直接调用API即可驱动。</p>
+                        <div class="blog-post-image">
+                            <img src="images/teams/ideaBotmicropython.jpg" class="img-responsive" alt="Blog Image">
+                        </div>
+                        <br>
+                        <br>
+                        <h2>| 未完，待续！</h2>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer Section -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <a href="index.html" class="col-md-3 col-sm-3">
+                    <img src="images/home/logo.svg" width="70" height="70" />
+                </a>
+
+                <div class="col-md-4 col-sm-4">
+                    <p>北京市海淀区</p>
+                    <p>老家江西吉安</p>
+                </div>
+
+                <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
+                    <p>
+                        <a href="https://github.com/wasdylb" target="view_window">
+                            <img src="images/home/icon-github.svg" width="20" height="20" /> wasdylb</a>
+                    </p>
+                    <p>
+                        <a href="mailto:wasdylb@foxmail.com">
+                            <img src="images/home/icon-email.svg" width="20" height="20" /> foxmail</a>
+                    </p>
+                    <p>
+                        <img src="images/home/icon-weixin.svg" width="20" height="20" /> wasdylb -I005</p>
+                    <p>
+                        <img src="images/home/icon-qq.svg" width="20" height="20" /> 853387039 -木易</p>
+                </div>
+
+                <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="footer-copyright">
+                        <a href="index.html">
+                            <p>© 2019 7月 | LiBin的个人博客 </p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                        <p>
+                            <a href="index.html">
+                                <img src="images/home/icon-love.svg" width="20" height="20" /> ^_^ Wlecome! ^_^
+                                <img src="images/home/icon-love.svg" width="20" height="20" />
+                            </a>
+                        </p>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
